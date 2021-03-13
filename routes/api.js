@@ -3,7 +3,7 @@ __path = process.cwd()
 var express = require('express');
 var db = require(__path + '/database/db');
 try {
-var zahirr = db.get("zahirr");
+var alpinofc = db.get("alpinofc");
 } catch (e) {
 	console.log('')
 }
@@ -157,7 +157,7 @@ var len = 15
         
  
  async function cekApiKey(api) {
- 	ap = await zahirr.findOne({apikey:api})
+ 	ap = await alpinofc.findOne({apikey:api})
  return ap;
  }
 router.get('/find', async (req, res, next) => {
@@ -166,7 +166,7 @@ router.get('/find', async (req, res, next) => {
     if (apikey != 'alpinofc') return res.json(loghandler.invalidKey)
 
     try {
-        zahirr.find()
+        alpinofc.find()
             .then(result => {
                 res.json({
                     status: true,
@@ -227,7 +227,7 @@ router.get('/addapikey', (req, res, next) => {
     if (apikey != 'alpinofc') return res.json(loghandler.invalidKey)
 
     try {
-        zahirr.insert({
+        alpinofc.insert({
         	status: status,
             apikey: apikeyInput,
             email: email,
@@ -266,7 +266,7 @@ router.get('/remove', (req, res, next) => {
     if (apikey != 'alpinofc') return res.json(loghandler.invalidKey)
 
     try {
-        zahirr.remove({
+        alpinofc.remove({
             status: status,
             apikey: apikeyInput,
             email: email,
@@ -1409,7 +1409,7 @@ router.get('/wikipedia', async (req, res, next) => {
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
         if(!search) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter search"})
 
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/wiki?keyword=${search}`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/wiki?keyword=${search}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1428,7 +1428,7 @@ router.get('/randomquote/muslim', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/quote?type=agamis`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/quote?type=agamis`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1450,7 +1450,7 @@ router.get('/drakorasia', async (req, res, next) => {
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
         if(!search) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter search"})
 
-       fetch(encodeURI(`http://docs-api-zahirrr.herokuapp.com/api/drakorasia?search=${search}`))
+       fetch(encodeURI(`http://docs-api-alpinofcr.herokuapp.com/api/drakorasia?search=${search}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1685,7 +1685,7 @@ router.get('/cuaca', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 	if(!kabupaten) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kabupaten"})
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/cuaca?kabupaten=${kabupaten}`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/cuaca?kabupaten=${kabupaten}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1705,7 +1705,7 @@ router.get('/random/meme', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/meme`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/meme`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1725,7 +1725,7 @@ router.get('/quotes/kanye', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/quote?type=kanye`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/quote?type=kanye`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1746,7 +1746,7 @@ router.get('/translate', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 	if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/translate?text=${kata}`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/translate?text=${kata}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1767,7 +1767,7 @@ router.get('/anime/kusonime', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 	if(!search) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter search"})
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/kusonime?search=${search}`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/kusonime?search=${search}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1787,7 +1787,7 @@ router.get('/gabut', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/bosan`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/bosan`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1808,7 +1808,7 @@ router.get('/manga', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 	if(!search) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter search"})
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/manga?keyword=${search}`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/manga?keyword=${search}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1828,7 +1828,7 @@ router.get('/random/wallpaper', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/random/wallpaper?genre=acak`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/random/wallpaper?genre=acak`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1848,7 +1848,7 @@ router.get('/kuis/caklontong', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/quote?type=caklontong`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/quote?type=caklontong`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1868,7 +1868,7 @@ router.get('/kuis/tebakgambar', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/quote?type=tebakgambar`))
+       fetch(encodeURI(`https://docs-api-alpinofcr.herokuapp.com/api/quote?type=tebakgambar`))
         .then(response => response.json())
         .then(data => {
         var result = data;
