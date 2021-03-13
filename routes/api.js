@@ -1428,7 +1428,7 @@ router.get('/randomquote/muslim', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
 
-       fetch(encodeURI(`https://python-api-zhirrr.herokuapp.com/api/random/quotes`))
+       fetch(encodeURI(`https://docs-api-zahirrr.herokuapp.com/api/quote?type=agamis`))
         .then(response => response.json())
         .then(data => {
         var result = data;
