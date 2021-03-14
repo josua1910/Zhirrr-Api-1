@@ -1100,6 +1100,24 @@ router.get('/muslim/ayatkursi', async (req, res, next) => {
 })
 })
 
+router.get('/news/cnbc', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`https://github.com/alpin1234567/alpinofc/blob/main/CNBC.json`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
 
 router.get('/muslim/doaharian', async (req, res, next) => {
         var apikeyInput = req.query.apikey
