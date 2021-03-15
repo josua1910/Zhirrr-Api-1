@@ -1180,7 +1180,7 @@ router.get('/muslim/niatshalat', async (req, res, next) => {
 })
 })
 
-router.get('/text3d', async (req, res, next) => {
+router.get('/maker3d', async (req, res, next) => {
         var apikeyInput = req.query.apikey
             
 	if(!apikeyInput) return res.json(loghandler.notparam)
