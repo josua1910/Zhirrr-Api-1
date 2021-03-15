@@ -1260,6 +1260,86 @@ router.get('/maker3d/no4?', async (req, res, next) => {
 })
 })
 
+router.get('/maker', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         kata = req.query.kata   
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
+       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/textmaker?text=${kata}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/maker2', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         kata = req.query.kata   
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
+       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/textmaker2?text=${kata}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/maker3', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         kata = req.query.kata   
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
+       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/textmaker3?text=${kata}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/maker4', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         kata = req.query.kata   
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
+       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/textmaker4?text=${kata}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
 router.get('/muslim/kisahnabi', async (req, res, next) => {
         var apikeyInput = req.query.apikey
             
