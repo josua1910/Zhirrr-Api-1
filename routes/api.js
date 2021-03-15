@@ -1068,7 +1068,7 @@ router.get('/lk21/search', async (req, res, next) => {
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
         if(!search) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter search"})
 
-       fetch(encodeURI(`http://api-lk21.herokuapp.com/search?query=avenger`))
+       fetch(encodeURI(`http://api-lk21.herokuapp.com/search?flim=${search}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
