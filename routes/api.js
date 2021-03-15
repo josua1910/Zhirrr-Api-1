@@ -1081,6 +1081,27 @@ router.get('/lk21/search', async (req, res, next) => {
 })
 })
 
+router.get('/maker3d', async (req, res, next) => {
+        var apikeyInput = req.query.apikey,
+            kata = req.query.kata
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+        if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
+
+       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/text3d?text=${kata}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
 router.get('/muslim/wirid', async (req, res, next) => {
         var apikeyInput = req.query.apikey
             
