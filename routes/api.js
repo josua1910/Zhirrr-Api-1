@@ -1187,7 +1187,7 @@ router.get('/maker3d', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
-       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/text3d?text=${kata}`))
+       fetch(encodeURI(`https://alpin-apikey.herokuapp.com/api/text3d?text=${kata}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1207,7 +1207,7 @@ router.get('/maker3d/no2', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
-       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/text3d-2?text=${kata}`))
+       fetch(encodeURI(`https://alpin-apikey.herokuapp.com/api/text3d-2?text=${kata}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1227,7 +1227,7 @@ router.get('/maker3d/no3', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
-       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/text3d-3?text=${kata}`))
+       fetch(encodeURI(`https://alpin-apikey.herokuapp.com/api/text3d-3?text=${kata}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1247,7 +1247,7 @@ router.get('/maker3d/no4?', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
-       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/text3d-4?text=${kata}`))
+       fetch(encodeURI(`https://alpin-apikey.herokuapp.com/api/text3d-4?text=${kata}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1267,7 +1267,7 @@ router.get('/maker', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
-       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/textmaker?text=${kata}`))
+       fetch(encodeURI(`https://alpin-apikey.herokuapp.com/api/textmaker?text=${kata}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1287,7 +1287,7 @@ router.get('/maker2', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
-       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/textmaker2?text=${kata}`))
+       fetch(encodeURI(`https://alpin-apikey.herokuapp.com/api/textmaker2?text=${kata}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1307,7 +1307,7 @@ router.get('/maker3', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
-       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/textmaker3?text=${kata}`))
+       fetch(encodeURI(`https://alpin-apikey.herokuapp.com/api/textmaker3?text=${kata}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1327,7 +1327,7 @@ router.get('/maker4', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
-       fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/textmaker4?text=${kata}`))
+       fetch(encodeURI(`https://alpin-apikey.herokuapp.com/api/textmaker4?text=${kata}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
