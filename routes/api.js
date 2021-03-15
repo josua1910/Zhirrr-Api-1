@@ -1186,7 +1186,7 @@ router.get('/maker3d', async (req, res, next) => {
          
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
-    if(kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
+    if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
        fetch(encodeURI(`https://textmaker-api-zahirr.herokuapp.com/api/text3d?text=${kata}`))
         .then(response => response.json())
         .then(data => {
