@@ -1310,7 +1310,7 @@ router.get('/lk21/terbaru', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     
-       fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?page=1 https://api-lk21.herokuapp.com/newupload?page=3')) 
+       fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?page=1')) 
         .then(response => response.json())
         .then(data => {
         var result = data;
