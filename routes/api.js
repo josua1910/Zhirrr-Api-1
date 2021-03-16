@@ -1159,6 +1159,26 @@ router.get('/muslim/niatshalat', async (req, res, next) => {
 })
 })
 
+router.get('/lk21/search', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         kata = req.query.kata   
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
+       fetch(encodeURI(`http://api-lk21.herokuapp.com/search?query=${kata}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
 router.get('/maker3d', async (req, res, next) => {
         var apikeyInput = req.query.apikey
          kata = req.query.kata   
