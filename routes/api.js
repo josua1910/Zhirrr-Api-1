@@ -1310,7 +1310,7 @@ router.get('/lk21/terbaru', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     
-       fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?`))
+       fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?page=1 https://api-lk21.herokuapp.com/newupload?page=3')) 
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1321,59 +1321,11 @@ router.get('/lk21/terbaru', async (req, res, next) => {
          .catch(e => {
          	res.json(loghandler.error)
          
-         fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?page=2`))
-        .then(response => response.json())
-        .then(data => {
-        var result = data;
-             res.json({
-                 result
-             })
-         })
-         .catch(e => {
-         	res.json(loghandler.error)
+         
 })
 })
 
-router.get('/lk21/terbaru', async (req, res, next) => {
-        var apikeyInput = req.query.apikey
-         
-         
-	if(!apikeyInput) return res.json(loghandler.notparam)
-	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
-    
-       fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?page=2`))
-        .then(response => response.json())
-        .then(data => {
-        var result = data;
-             res.json({
-                 result
-             })
-         })
-         .catch(e => {
-         	res.json(loghandler.error)
-})
-})
-
-router.get('/lk21/terbaru', async (req, res, next) => {
-        var apikeyInput = req.query.apikey
-         
-         
-	if(!apikeyInput) return res.json(loghandler.notparam)
-	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
-    
-       fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?page=3`))
-        .then(response => response.json())
-        .then(data => {
-        var result = data;
-             res.json({
-                 result
-             })
-         })
-         .catch(e => {
-         	res.json(loghandler.error)
-})
-})
-
+	
 router.get('/maker3', async (req, res, next) => {
         var apikeyInput = req.query.apikey
          kata = req.query.kata   
