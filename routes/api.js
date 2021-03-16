@@ -1060,15 +1060,15 @@ router.get('/muslim/tahlil', async (req, res, next) => {
 })
 })
 
-router.get('/lk21/search', async (req, res, next) => {
+router.get('/lk21/search', async (req, res, next) => {     
         var apikeyInput = req.query.apikey,
-            flim = req.query.flim
+            kata = req.query.kata
             
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
-        if(!flim) return res.json({ status : false, creator : `${creator}`,})
+        if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
 
-       fetch(encodeURI(`http://api-lk21.herokuapp.com/search?flim=${flim}`))
+       fetch(encodeURI(`http://api-lk21.herokuapp.com/search?flim=${kata}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1080,6 +1080,7 @@ router.get('/lk21/search', async (req, res, next) => {
          	res.json(loghandler.error)
 })
 })
+
 
 router.get('/muslim/wirid', async (req, res, next) => {
         var apikeyInput = req.query.apikey
@@ -1310,6 +1311,46 @@ router.get('/lk21/terbaru', async (req, res, next) => {
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     
        fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/lk21/terbaru', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    
+       fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?page=2`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/lk21/terbaru', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    
+       fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?page=3`))
         .then(response => response.json())
         .then(data => {
         var result = data;
