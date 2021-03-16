@@ -1301,8 +1301,6 @@ router.get('/maker2', async (req, res, next) => {
 })
 })
 
-
-
 router.get('/lk21/terbaru', async (req, res, next) => {
         var apikeyInput = req.query.apikey
          
@@ -1319,9 +1317,7 @@ router.get('/lk21/terbaru', async (req, res, next) => {
              })
          })
          .catch(e => {
-         	res.json(loghandler.error)
-         
-         
+         	res.json(loghandler.error)         
 })
 })
 
