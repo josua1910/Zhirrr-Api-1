@@ -1279,7 +1279,7 @@ router.get('/lk21/country', async (req, res, next) => {
 })
 })
 
-router.get('/lk21/country', async (req, res, next) => {
+router.get('/lk21/genre', async (req, res, next) => {
         var apikeyInput = req.query.apikey
          kata = req.query.kata   
          
