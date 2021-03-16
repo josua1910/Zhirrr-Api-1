@@ -1060,15 +1060,15 @@ router.get('/muslim/tahlil', async (req, res, next) => {
 })
 })
 
-router.get('/lk21/search', async (req, res, next) => {
+router.get('/lk21', async (req, res, next) => {
         var apikeyInput = req.query.apikey,
-            search = req.query.search
+            flim = req.query.flim
             
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
-        if(!search) return res.json({ status : false, creator : `${creator}`,})
+        if(!flim) return res.json({ status : false, creator : `${creator}`,})
 
-       fetch(encodeURI(`http://api-lk21.herokuapp.com/search?flim=${search}`))
+       fetch(encodeURI(`http://api-lk21.herokuapp.com/search?flim=${flim}`))
         .then(response => response.json())
         .then(data => {
         var result = data;
@@ -1300,25 +1300,7 @@ router.get('/maker2', async (req, res, next) => {
 })
 })
 
-router.get('/lk21', async (req, res, next) => {
-        var apikeyInput = req.query.apikey
-         query = req.query.query
-         
-	if(!apikeyInput) return res.json(loghandler.notparam)
-	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
-    if(!query) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
-       fetch(encodeURI(`http://api-lk21.herokuapp.com/search?query=${query}`))
-        .then(response => response.json())
-        .then(data => {
-        var result = data;
-             res.json({
-                 result
-             })
-         })
-         .catch(e => {
-         	res.json(loghandler.error)
-})
-})
+
 
 router.get('/lk21/terbaru', async (req, res, next) => {
         var apikeyInput = req.query.apikey
@@ -1327,7 +1309,7 @@ router.get('/lk21/terbaru', async (req, res, next) => {
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     
-       fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?page=`))
+       fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload?page=2`))
         .then(response => response.json())
         .then(data => {
         var result = data;
