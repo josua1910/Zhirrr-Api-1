@@ -1239,6 +1239,66 @@ router.get('/lk21/tvseries', async (req, res, next) => {
 })
 })
 
+router.get('/lk21/year', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         kata = req.query.kata   
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
+       fetch(encodeURI(`http://api-lk21.herokuapp.com/year?year=${kata}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/lk21/country', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         kata = req.query.kata   
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
+       fetch(encodeURI(`http://api-lk21.herokuapp.com/country?country=${kata}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/lk21/country', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         kata = req.query.kata   
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    if(!kata) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kata"})
+       fetch(encodeURI(`http://api-lk21.herokuapp.com/genre?genre=${kata}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
 router.get('/maker3d', async (req, res, next) => {
         var apikeyInput = req.query.apikey
          kata = req.query.kata   
