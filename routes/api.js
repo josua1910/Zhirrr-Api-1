@@ -8,7 +8,7 @@ var alpinofc = db.get("alpinofc");
 	console.log('')
 }
 
-var creatorList = ['@alpin','@alpin','@alpin_xploit','@dappa', '@yogi','@hans','@alpinofc'];
+var creatorList = ['@alpin','@alpin','@alpin_xploit','@alpin', '@alpinofc','@alpinofc','@alpinofc'];
 var creator = creatorList[Math.floor(Math.random() * creatorList.length)];
 
 
