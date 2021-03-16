@@ -1199,6 +1199,66 @@ router.get('/lk21/terbaru', async (req, res, next) => {
 })
 })
 
+router.get('/lk21/comingsoon', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    
+       fetch(encodeURI(`https://api-lk21.herokuapp.com/comingsoon`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/lk21/tvseries', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    
+       fetch(encodeURI(`https://api-lk21.herokuapp.com/tv`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/lk21/year', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+         tahun = req.query.tahun
+         
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+    if(!tahun) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter tahun"})
+       fetch(encodeURI(`http://api-lk21.herokuapp.com/year?year=${tahun}))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
 router.get('/maker3d', async (req, res, next) => {
         var apikeyInput = req.query.apikey
          kata = req.query.kata   
