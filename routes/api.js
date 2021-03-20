@@ -135,6 +135,12 @@ loghandler = {
         status: false,
         creator: `${creator}`,
         message: 'mungkin sedang dilakukan perbaikan'
+        }
+        notcekapikey: {
+        status: false,
+        creator: `${creator}`,
+        code: 406,
+        message: 'apikeynya salah cok hamdeh'
     }
 }
 
@@ -383,6 +389,24 @@ router.get('/infonpm', async (req, res, next) => {
 })
 })
 
+router.get('/cekapikey', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`https://github.com/alpin1234567/alpinu/blob/main/alpin.json`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
 
 router.get('/short/tiny', async (req, res, next) => {
     var apikeyInput = req.query.apikey,
