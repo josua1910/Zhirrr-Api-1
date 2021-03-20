@@ -135,12 +135,6 @@ loghandler = {
         status: false,
         creator: `${creator}`,
         message: 'mungkin sedang dilakukan perbaikan'
-        }
-        notcekapi: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'apikeynya salah cok hamde'
     }
 }
 
@@ -186,7 +180,7 @@ router.get('/find', async (req, res, next) => {
     }
 })
 
-router.get('/cekapikey', async (req, res, next) => {
+router.get('cekapikey', async (req, res, next) => {
 	var apikeyInput = req.query.apikey
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	a = await cekApiKey(apikeyInput)
