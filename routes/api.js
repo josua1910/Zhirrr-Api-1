@@ -1179,14 +1179,131 @@ router.get('/lk21/search', async (req, res, next) => {
 })
 })
 
-router.get('/api/cekapi', async (req, res, next) => {
+router.get('/nsfw/ahegao', async (req, res, next) => {
         var apikeyInput = req.query.apikey
-         
-         
+            
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
-    
-       fetch(encodeURI(`https://github.com/alpin1234567/alpinu/blob/main/alpin.json`))
+
+       fetch(encodeURI(`https://raw.githubusercontent.com/alpin1234567/Js-Project/master/jsinnsfw/ahegao.json`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+
+router.get('/nsfw/ass', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`https://raw.githubusercontent.com/alpin1234567/Js-Project/master/jsinnsfw/ass.json`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+
+router.get('/nsfw/bdsm', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`https://raw.githubusercontent.com/alpin1234567/Js-Project/master/jsinnsfw/bdsm.json`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+
+router.get('/nsfw/blowjob', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`https://raw.githubusercontent.com/alpin1234567/Js-Project/master/jsinnsfw/blowjob.json`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+
+router.get('/nsfw/wallpaper', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`https://raw.githubusercontent.com/alpin1234567/Js-Project/master/jsinnsfw/wallpaper.json`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/nsfw/nsfwNeko', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`https://raw.githubusercontent.com/alpin1234567/Js-Project/master/jsinnsfw/nsfwNeko.json`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+})
+
+router.get('/nsfw/cum', async (req, res, next) => {
+        var apikeyInput = req.query.apikey
+            
+	if(!apikeyInput) return res.json(loghandler.notparam)
+	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
+
+       fetch(encodeURI(`https://raw.githubusercontent.com/alpin1234567/Js-Project/master/jsinnsfw/cum.json`))
         .then(response => response.json())
         .then(data => {
         var result = data;
