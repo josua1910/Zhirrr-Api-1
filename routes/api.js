@@ -1179,7 +1179,7 @@ router.get('/lk21/search', async (req, res, next) => {
 })
 })
 
-router.get('/cekapi', async (req, res, next) => {
+router.get('/api/cekapi', async (req, res, next) => {
         var apikeyInput = req.query.apikey
          
          
