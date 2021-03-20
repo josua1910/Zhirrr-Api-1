@@ -136,11 +136,11 @@ loghandler = {
         creator: `${creator}`,
         message: 'mungkin sedang dilakukan perbaikan'
         }
-        notcekapikey: {
+        notcekapi: {
         status: false,
         creator: `${creator}`,
         code: 406,
-        message: 'apikeynya salah cok hamdeh'
+        message: 'apikeynya salah cok hamde'
     }
 }
 
@@ -389,24 +389,6 @@ router.get('/infonpm', async (req, res, next) => {
 })
 })
 
-router.get('/cekapikey', async (req, res, next) => {
-        var apikeyInput = req.query.apikey
-            
-	if(!apikeyInput) return res.json(loghandler.notparam)
-	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
-
-       fetch(encodeURI(`https://github.com/alpin1234567/alpinu/blob/main/alpin.json`))
-        .then(response => response.json())
-        .then(data => {
-        var result = data;
-             res.json({
-                 result
-             })
-         })
-         .catch(e => {
-         	res.json(loghandler.error)
-})
-})
 
 router.get('/short/tiny', async (req, res, next) => {
     var apikeyInput = req.query.apikey,
@@ -1203,14 +1185,14 @@ router.get('/lk21/search', async (req, res, next) => {
 })
 })
 
-router.get('/lk21/terbaru', async (req, res, next) => {
+router.get('/cekapi', async (req, res, next) => {
         var apikeyInput = req.query.apikey
          
          
 	if(!apikeyInput) return res.json(loghandler.notparam)
 	if(apikeyInput != 'alpinofc') return res.json(loghandler.invalidKey)
     
-       fetch(encodeURI(`https://api-lk21.herokuapp.com/newupload`))
+       fetch(encodeURI(`https://github.com/alpin1234567/alpinu/blob/main/alpin.json`))
         .then(response => response.json())
         .then(data => {
         var result = data;
